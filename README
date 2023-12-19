@@ -1,0 +1,5 @@
+This project looks at some data about Taylor Swift's music. The first half of it is looking at a Wikipedia page for her discography. It uses BeautifulSoup to scrape a table on the page that contains categories of albums such as live, re-recorded, et cetera. It also takes in the counts for each category and stores this information in lists.
+
+The second half of the project utilizes a public CSV file I found on Gigasheet (https://www.gigasheet.com/sample-data/taylor-swift-songs-spreadsheet) that includes information about Taylor Swift's discography pulled from Spotify. I used Pandas to make a DataFrame out of the CSV and cleaned it up a lot to only contain the columns that I deemed important for my project. It then creates a new column in the DataFrame containing the length of each song in minutes by doing a vectorized computation on the Duration_ms (duration in milliseconds) column. It then uses a boolean to get a subset of the data that only contains rows for songs longer than five minutes. It writes this subset to a new CSV for long songs.
+
+This program is best run line-by-line. I regularly committed to a Git repo so my progress is clearly outlined.
