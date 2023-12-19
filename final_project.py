@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
 # This Wikipedia web page contains information about Taylor Swift's albums. It includes a table
 # listing how many albums she's done that fall into different categories.
@@ -29,3 +32,25 @@ for row in table_rows[2:]:
 
 print("Here are the corresponding values for the above categories: ")
 swift_albums_rows
+
+songs = pd.read_csv("taylor_swift_songs.csv")
+del songs["Danceability"]
+del songs["Energy"]
+del songs["Loudness"]
+del songs["Key"]
+del songs["Mode"]
+del songs["Speechiness"]
+del songs["Acousticness"]
+del songs["Instrumentalness"]
+del songs["Liveness"]
+del songs["Valence"]
+del songs["Tempo"]
+del songs["Time Signature"]
+del songs["Playlist ID"]
+print(songs)
+songs["Duration (mins)"] = songs["Duration_ms"] / 60000
+print(songs)
+type(songs)
+long_songs = songs[songs["Duration (mins)"] > 5]
+print(long_songs)
+long_songs.to_csv("swift_long_songs.csv")
